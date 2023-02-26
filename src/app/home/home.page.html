@@ -12,6 +12,13 @@
     <ion-item *ngFor="let mep of meps" [routerLink]="'/mep/' + mep">
       {{ mep }}
     </ion-item>
+    <ion-item>
+      <ion-label>Create New</ion-label>
+      <ion-input #newMapNameInput></ion-input>
+      <ion-button slot="end" [routerLink]="'/mep/' + newMapNameInput.value">
+        Create
+      </ion-button>
+    </ion-item>
   </ion-list>
 
 </ion-content>

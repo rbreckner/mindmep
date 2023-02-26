@@ -1,0 +1,7 @@
+{
+  "name": "mindmep",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

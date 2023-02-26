@@ -1,0 +1,13 @@
+<div #textDiv class="text-field"
+     [attr.contenteditable]="editable"
+     (dblclick)="enableTextEdit()"
+     (input)="input.emit()"
+     (keydown.enter)="onTextChanged()"
+     (keydown.tab)="onTextChanged('createNew'); $event.preventDefault()"
+     (keydown.backspace)="onTextChanged('backspace')"
+     [innerText]="element?.text">
+</div>
+<!--<small *ngIf="textDiv.getBoundingClientRect() as rect">-->
+<!--  x: {{rect.x.toFixed(0)}} y: {{ rect.y}}-->
+<!--</small>-->
+

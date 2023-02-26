@@ -1,0 +1,46 @@
+:host {
+  display: inline-block;
+  position: absolute;
+
+  //transform: skew(-20deg);
+
+  &.cursor-grabbing {
+    div.text-field {
+      cursor: grabbing;
+      animation-name: wiggle;
+      animation-duration: 500ms;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  div.text-field {
+    min-height: 31px;
+    padding: 4px;
+    background-color: rgb(10, 10, 10, .7);
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 0px #fff;
+
+    &:hover {
+      box-shadow: 0px 0px 4px 0px #fff;
+    }
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--element-color);
+
+    cursor: grab;
+
+    &[contenteditable="false"] {
+      user-select: none;
+    }
+  }
+
+  @keyframes wiggle{
+    0% {rotate: 0deg}
+    25% {rotate: 4deg}
+    50% {rotate: -4deg}
+    75% {rotate: 4deg}
+    100% {rotate: 0deg}
+  }
+}
+

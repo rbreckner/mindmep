@@ -1,0 +1,105 @@
+:host {
+  --header-compensation: -56px;
+
+  --connection-padding: 10px;
+  --connection-shadow: 0px 0px 2px 0px #fff;
+  --connection-width: 1px;
+  --connection-hover-width: 2px;
+
+  .x-connection {
+    position: absolute;
+    padding: var(--connection-padding) 0;
+    translate: 0 calc(var(--header-compensation) - var(--connection-padding));
+
+    .line {
+      box-shadow: var(--connection-shadow);
+      height: var(--connection-width);
+      background-image: var(--connection-gradient);
+    }
+
+    &.hover {
+      .line {
+        height: var(--connection-hover-width) !important;
+      }
+    }
+
+    .arrow-left {
+      width: 0;
+      height: 0;
+
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid var(--arrow-color);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .arrow-right {
+      width: 0;
+      height: 0;
+
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid var(--arrow-color);
+
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &.guidelines {
+      border: 1px dashed lightblue;
+    }
+  }
+
+  .y-connection {
+    position: absolute;
+    padding: 0 var(--connection-padding);
+    translate: calc(var(--connection-padding) * -1) calc(var(--header-compensation));
+
+    .line {
+      height: 100%;
+      box-shadow: var(--connection-shadow);
+      width: var(--connection-width);
+      background-image: var(--connection-gradient);
+    }
+
+    &.hover {
+      .line {
+        width: var(--connection-hover-width) !important;
+      }
+    }
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid var(--arrow-color);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .arrow-down {
+      width: 0;
+      height: 0;
+
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid var(--arrow-color);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.guidelines {
+      border: 1px dashed lightblue;
+    }
+  }
+}

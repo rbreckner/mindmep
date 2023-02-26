@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Mep::Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item *ngFor="let mep of meps" [routerLink]="'/mep/' + mep">
+      {{ mep }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

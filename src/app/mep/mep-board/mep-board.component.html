@@ -1,0 +1,20 @@
+<div class="mep-wrapper"
+     (click)="createElementByMouse($event)"
+     (mousemove)="onMouseMove($event)">
+
+  <mep-connections [connectionViewModels]="connectionViewModels"
+                   (connectionClick)="onConnectionClick($event)">
+  </mep-connections>
+
+  <mep-element *ngFor="let el of elements"
+               [element]="el"
+               [style.left]="el.x + 'px'"
+               [style.top]="el.y + 'px'"
+               [style.--element-color]="el.color"
+               [class.cursor-grabbing]="movingEl?.id === el.id"
+               (click)="$event.stopPropagation()"
+               (mousedown)="onElementMouseDown($event, el)"
+               (textChanged)="textChanged($event, el)"
+               (input)="mapConnectionViewModels()">
+  </mep-element>
+</div>

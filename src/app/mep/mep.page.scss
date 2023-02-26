@@ -1,0 +1,16 @@
+:host {
+  .connection-overview {
+    background-color: #2a2a2a;
+    padding: 4px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    div {
+      cursor: pointer;
+      &:hover {
+        text-decoration: line-through;
+      }
+    }
+  }
+}

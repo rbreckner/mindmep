@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>mep:{{this.mapId}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="connectionDebug = !connectionDebug">
+        <ion-icon name="analytics"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mep-board *ngIf="this.mep"
+             [elements]="mep.elements"
+             [connections]="mep.connections"
+             (saveElements)="saveElements($event)"
+             (saveConnections)="saveConnections($event)">
+  </mep-board>
+
+
+  <div *ngIf="connectionDebug"
+       class="connection-overview">
+    <div *ngFor="let connection of connectionOverview"
+         (mouseup)="removeConnection(connection.id)">
+      {{connection.startNodeName}} {{ connection.firstLine === 'horizontal' ? '>' : '^' }} {{ connection.endNodeName}}
+    </div>
+  </div>
+
+</ion-content>

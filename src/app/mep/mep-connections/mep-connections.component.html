@@ -1,0 +1,32 @@
+<ng-container *ngFor="let vm of connectionViewModels">
+  <div class="x-connection"
+       [style.left]="vm.horizontal.x + 'px'"
+       [style.top]="vm.horizontal.y + 'px'"
+       [style.width]="vm.horizontal.width+ 'px'"
+       [style.--connection-gradient]="vm.horizontal.gradient"
+       [class.hover]="vm.connectionId === hoveredConnectionId"
+       (mouseenter)="this.hoveredConnectionId = vm.connectionId"
+       (mouseleave)="this.hoveredConnectionId = null"
+       (click)="changeConnectionDirection($event, vm)">
+    <div class="line"></div>
+    <div [class.arrow-left]="vm.horizontal.arrowLeft"
+         [class.arrow-right]="vm.horizontal.arrowRight"
+         [style.--arrow-color]="vm.horizontal.arrowColor">
+    </div>
+  </div>
+  <div class="y-connection"
+       [style.left]="vm.vertical.x + 'px'"
+       [style.top]="vm.vertical.y + 'px'"
+       [style.height]="vm.vertical.height + 'px'"
+       [style.--connection-gradient]="vm.vertical.gradient"
+       [class.hover]="vm.connectionId === hoveredConnectionId"
+       (mouseenter)="this.hoveredConnectionId = vm.connectionId"
+       (mouseleave)="this.hoveredConnectionId = null"
+       (click)="changeConnectionDirection($event, vm)">
+    <div class="line"></div>
+    <div [class.arrow-up]="vm.vertical.arrowUp"
+         [class.arrow-down]="vm.vertical.arrowDown"
+         [style.--arrow-color]="vm.vertical.arrowColor">
+    </div>
+  </div>
+</ng-container>

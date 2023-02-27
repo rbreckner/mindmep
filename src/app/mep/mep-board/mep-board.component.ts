@@ -50,7 +50,13 @@ export class MepBoardComponent implements AfterViewInit {
     y: number,
     left: number,
     top: number
-  } | null = null
+  } | null = null;
+
+
+  mousePosition: {
+    left: number;
+    top: number;
+  } | null = null;
 
   @Input() elements: MepElement[] = [];
 
@@ -59,7 +65,7 @@ export class MepBoardComponent implements AfterViewInit {
   @Output() saveElements = new EventEmitter<MepElement[]>();
   @Output() saveConnections = new EventEmitter<MepConnection[]>();
 
-  constructor(private mepService: MepService) {
+  constructor(public mepService: MepService) {
     windowDebug('mepBoard', this);
   }
 
@@ -105,6 +111,11 @@ export class MepBoardComponent implements AfterViewInit {
 
 
   onMouseMove(event: MouseEvent) {
+    this.mousePosition = {
+      left: event.clientX,
+      top: event.clientY
+    }
+
     if (this.movingEl && this.mouseClick) {
       this.movingEl.x = this.mouseClick.left + (event.clientX - this.mouseClick.x);
       this.movingEl.y = this.mouseClick.top + (event.clientY - this.mouseClick.y);

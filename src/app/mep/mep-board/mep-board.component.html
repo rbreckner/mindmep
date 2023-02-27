@@ -2,6 +2,13 @@
      (click)="createElementByMouse($event)"
      (mousemove)="onMouseMove($event)">
 
+  <mep-element *ngIf="!this.mepService.editableElementId &&!this.movingEl"
+               class="ghost"
+               [style.left]="mousePosition?.left + 'px'"
+               [style.top]="mousePosition?.top + 'px'"
+               [style.--element-color]="'white'">
+  </mep-element>
+
   <mep-connections [connectionViewModels]="connectionViewModels"
                    (connectionClick)="onConnectionClick($event)">
   </mep-connections>
@@ -17,4 +24,6 @@
                (textChanged)="textChanged($event, el)"
                (input)="mapConnectionViewModels()">
   </mep-element>
+
+
 </div>

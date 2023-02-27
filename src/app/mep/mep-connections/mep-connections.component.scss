@@ -18,6 +18,8 @@
     }
 
     &.hover {
+      cursor: pointer;
+
       .line {
         height: var(--connection-hover-width) !important;
       }
@@ -67,6 +69,8 @@
     }
 
     &.hover {
+      cursor: pointer;
+
       .line {
         width: var(--connection-hover-width) !important;
       }

@@ -1,5 +1,5 @@
 import {MepElementId} from "./mep-element";
-import {Id} from "../../../helper";
+import {Id} from "../../../shared/helper";
 
 export type MepConnectionId = Id<MepConnection>;
 

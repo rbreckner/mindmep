@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {v4 as uuidv4} from "uuid";
-import {Id} from "../../helper";
+import {Id} from "../../shared/helper";
 import {MepElement} from "./types/mep-element";
 import {MepConnection} from "./types/mep-connection";
 

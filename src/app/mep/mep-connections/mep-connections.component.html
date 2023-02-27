@@ -7,7 +7,8 @@
        [class.hover]="vm.connectionId === hoveredConnectionId"
        (mouseenter)="this.hoveredConnectionId = vm.connectionId"
        (mouseleave)="this.hoveredConnectionId = null"
-       (click)="changeConnectionDirection($event, vm)">
+       (click)="changeConnectionDirection($event, vm)"
+       (contextmenu)="removeConnection($event, vm.connectionId)">
     <div class="line"></div>
     <div [class.arrow-left]="vm.horizontal.arrowLeft"
          [class.arrow-right]="vm.horizontal.arrowRight"
@@ -22,7 +23,8 @@
        [class.hover]="vm.connectionId === hoveredConnectionId"
        (mouseenter)="this.hoveredConnectionId = vm.connectionId"
        (mouseleave)="this.hoveredConnectionId = null"
-       (click)="changeConnectionDirection($event, vm)">
+       (click)="changeConnectionDirection($event, vm)"
+       (contextmenu)="removeConnection($event, vm.connectionId)">
     <div class="line"></div>
     <div [class.arrow-up]="vm.vertical.arrowUp"
          [class.arrow-down]="vm.vertical.arrowDown"

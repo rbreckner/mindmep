@@ -10,7 +10,8 @@
   </mep-element>
 
   <mep-connections [connectionViewModels]="connectionViewModels"
-                   (connectionClick)="onConnectionClick($event)">
+                   (connectionClick)="onConnectionClick($event)"
+                   (connectionMiddleClick)="removeConnection($event)">
   </mep-connections>
 
   <mep-element *ngFor="let el of elements"
@@ -25,5 +26,6 @@
                (input)="mapConnectionViewModels()">
   </mep-element>
 
+  <mep-toolbar [activeTool]="activeTool"></mep-toolbar>
 
 </div>

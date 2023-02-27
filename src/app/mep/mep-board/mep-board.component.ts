@@ -4,16 +4,15 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  OnInit,
   Output,
   QueryList,
   ViewChildren
 } from '@angular/core';
 import {MepElementChangedEvent, MepElementComponent} from "../mep-element/mep-element.component";
-import {MepService} from "../../mep.service";
+import {MepService} from "../mep.service";
 import {v4 as uuidv4} from "uuid";
 import chroma from 'chroma-js';
-import {windowDebug} from "../../../helper";
+import {windowDebug} from "../../../shared/helper";
 import {MepElement, MepElementId} from "../types/mep-element";
 import {MepConnection, MepConnectionId} from "../types/mep-connection";
 import {
@@ -21,6 +20,7 @@ import {
   createConnectionViewModels,
   MepConnectionViewModel
 } from "../types/mep-connection-view-model";
+import {MepTool} from "../types/mep-tool";
 
 @Component({
   selector: 'mep-board',
@@ -57,6 +57,18 @@ export class MepBoardComponent implements AfterViewInit {
     left: number;
     top: number;
   } | null = null;
+
+  // activeTool: MepTool = MepTool.createElement;
+
+  get activeTool(): MepTool {
+    if (this.movingEl) {
+      return MepTool.move;
+    } else if (this.mepService.editableElementId) {
+      return MepTool.createConnection
+    } else {
+      return MepTool.createElement;
+    }
+  }
 
   @Input() elements: MepElement[] = [];
 
@@ -105,6 +117,7 @@ export class MepBoardComponent implements AfterViewInit {
 
       if (this.mepService.editableElementId) {
         this.createConnection(this.mepService.editableElementId, el.id);
+        this.mepService.editableElementId = null;
       }
     }
   }
@@ -143,17 +156,16 @@ export class MepBoardComponent implements AfterViewInit {
 
       if (event.createNew) {
 
-        const oldElementRef = this.elementRefs?.find(
-          x => x.element?.id === el.id
-        );
+        const oldElementRef = this.elementRefMap?.[el.id.toString()];
 
-        const offset = oldElementRef?.textDivRef?.nativeElement.clientWidth;
-        if (offset) {
+        const rect = oldElementRef?.textDivRef?.nativeElement.getBoundingClientRect();
+        if (rect) {
           const newElementId = this.createElement(
-            el.x + offset + 20,
-            el.y
+            rect.right + 20,
+            rect.bottom - 56 + 20
           );
           this.createConnection(el.id, newElementId);
+          // this.mepService.editableElementId = newElementId;
         }
       }
 
@@ -244,5 +256,11 @@ export class MepBoardComponent implements AfterViewInit {
       this.saveConnections.emit(this.connections);
     }
 
+  }
+
+  removeConnection(id: MepConnectionId) {
+    console.log('remöve?')
+    this.saveConnections.emit(this.connections.filter(c => c.id !== id))
+    this.mapConnectionViewModels();
   }
 }

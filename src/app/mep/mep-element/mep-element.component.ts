@@ -10,7 +10,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import {MepService} from "../../mep.service";
+import {MepService} from "../mep.service";
 import {MepElement} from "../types/mep-element";
 
 export interface MepElementChangedEvent {

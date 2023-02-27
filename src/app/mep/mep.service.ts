@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {MepElement, MepElementId} from "./mep/types/mep-element";
+import {MepElement, MepElementId} from "./types/mep-element";
 
 @Injectable({
   providedIn: 'root'

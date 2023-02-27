@@ -1,0 +1,23 @@
+:host {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+  padding: 5px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 6px;
+
+  ion-button {
+    &::part(native) {
+      padding: 0 5px;
+    }
+
+    --color: var(--ion-color-light);
+
+    &.active {
+      --color: var(--ion-color-primary)
+    }
+  }
+
+
+}

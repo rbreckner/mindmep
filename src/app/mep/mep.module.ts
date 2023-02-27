@@ -10,6 +10,7 @@ import {MepPage} from './mep.page';
 import {MepElementComponent} from "./mep-element/mep-element.component";
 import {MepConnectionsComponent} from "./mep-connections/mep-connections.component";
 import {MepBoardComponent} from "./mep-board/mep-board.component";
+import {MepToolbarComponent} from "./mep-toolbar/mep-toolbar.component";
 
 @NgModule({
   imports: [
@@ -18,12 +19,13 @@ import {MepBoardComponent} from "./mep-board/mep-board.component";
     IonicModule,
     MepPageRoutingModule
   ],
-  declarations: [
-    MepPage,
-    MepElementComponent,
-    MepConnectionsComponent,
-    MepBoardComponent
-  ]
+    declarations: [
+        MepPage,
+        MepElementComponent,
+        MepConnectionsComponent,
+        MepBoardComponent,
+        MepToolbarComponent
+    ]
 })
 export class MepPageModule {
 }

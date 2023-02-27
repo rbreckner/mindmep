@@ -1,4 +1,4 @@
-import {Id} from "../../../helper";
+import {Id} from "../../../shared/helper";
 
 export type MepElementId = Id<MepElementId>;
 

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SVG Playground</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <svg #mep width="100%" height="100%">
+    <rect x="50" y="100" width="200" height="150"  stroke="white" stroke-width="2" fill="gray"></rect>
+    <circle cx="500" cy="300" r="30" stroke="white" stroke-width="2" [draggable]="true"></circle>
+<!--    <line x1="250" y1="175" x2="470" y2="270" stroke="white" stroke-width="2"></line>-->
+    <path [attr.d]="path" stroke="white" fill="none"></path>
+  </svg>
+
+</ion-content>

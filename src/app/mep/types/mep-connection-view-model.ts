@@ -140,7 +140,7 @@ export const createConnectionViewModels = (
           yConnection = {
             x: leftNode.rect.left + leftNode.rect.width / 2,
             y: rightNode.rect.top + rightNode.rect.height / 2,
-            height: (leftNode.rect.top + leftNode.rect.height / 2) - rightNode.rect.bottom,
+            height: leftNode.rect.top - (rightNode.rect.bottom - rightNode.rect.height / 2),
           };
           xConnection = {
             x: yConnection.x,
